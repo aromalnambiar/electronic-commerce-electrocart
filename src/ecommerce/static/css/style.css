@@ -455,9 +455,21 @@ textarea.input {
   float: left;
 }
 
-.header-logo .logo img {
+.header-logo .logo h1 {
   display: block;
+  color: #fff;
+  margin-top: -20px;
 }
+
+.header-logo .logo h1 span {
+  color: #D10024;
+  font-size: 70px;
+  padding-left: 10px;
+  border-radius: 20px;
+}
+
+
+
 
 /*----------------------------*\
 	Search
