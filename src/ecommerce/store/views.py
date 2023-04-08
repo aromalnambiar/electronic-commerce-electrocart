@@ -16,3 +16,11 @@ def checkout(request):
     context = {}
     return render(request, 'store/checkout.html', context)
 
+def register(request):
+    context = {}
+    return render(request, 'store/register.html', context)
+
+def signin(request):
+    context = {}
+    return render(request, 'store/signin.html', context)
+

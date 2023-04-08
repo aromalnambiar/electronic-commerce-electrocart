@@ -1,0 +1,126 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%);
+    height: 100vh;
+   
+ }
+  
+ * {
+    box-sizing: border-box;
+ }
+  
+
+ .box {
+    background-color: white;
+ }
+
+ .container{
+    background-color: white;
+    width: 400px;
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 20px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+ }
+
+form{
+
+}
+
+.logo{
+   text-decoration: none;
+}
+
+.logo h1{
+   color: #000;
+   margin-top: -15px;
+}
+
+.logo span{
+   color: #D10024;
+   color: #D10024;
+   font-size: 70px;
+   padding-left: 10px;
+   border-radius: 50px;
+}
+
+ input[type=text], input[type=email], input[type=password] {
+   width: 70%;
+   padding: 10px;
+   margin: 5px 0 10px 0;
+   display: inline-block;
+   border: none;
+   background: #f1f1f1;
+   border-radius: 10px;
+ }
+  
+ input[type=text]:focus, input[type=email]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+ }
+  
+ hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 18px;
+ }
+
+ .registerbtn {
+   background: linear-gradient(108.4deg, rgb(253, 44, 56) 3.3%, rgb(176, 2, 12) 98.4%);
+    color: white;
+    padding: 12px 18px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 40%;
+    opacity: 0.9;
+    border-radius: 10px;
+    
+ }
+  
+ .registerbtn:hover {
+    opacity: 1;
+ }
+
+ a {
+    color: #D10024;
+ }
+  
+
+ .signin {
+    background-color: #f1f1f1;
+    text-align: center;
+ }
+
+div.register{
+    text-align: center;
+}
+
+div.register p{
+    width: 100%;
+    color: #222;
+    text-decoration: none;
+}
+
+
+
+div.home{
+   position: absolute;
+ }
+ div.home a{
+  text-decoration: none;
+  color: whitesmoke;
+  top: 50px;
+ }
+
+ div.home a img{
+   position: absolute;
+   margin-left: 10px;
+ }
+
+ div.home a p{
+   margin-top: 50px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   font-weight: bold;
+   margin-left: 10px;
+ }

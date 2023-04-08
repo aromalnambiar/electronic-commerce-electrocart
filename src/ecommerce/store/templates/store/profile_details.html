@@ -1,0 +1,69 @@
+
+{% extends 'store/main.html' %}
+{% load static %}
+{% block content %}   
+
+    <link rel="stylesheet" href="{%static '/css/profile_details.css'  %}">
+
+   <div class="container">
+    <form>
+        <div class="register">
+                <h1>Profile</h1>
+                <hr>
+                <div>
+                    <img src="{% static '/img/img_avatar.png' %}" alt="Avatar" class="avatar">
+                    <a href="#"><img class="edit" src="{%static '/img/icons8-edit-50.png' %}" alt="img"/></a>
+                </div>
+                
+                <div class="name">
+                    <label for="email"><p><b>First Name</b></p></label>
+                    <input type="text" placeholder="First name" name="email" id="text" required>
+                    <label for="email"><p><b>Last Name</b></p></label>
+                    <input type="text" placeholder="First name" name="email" id="text" required>
+                </div>
+                
+                <div class="num">
+                    <label for="psw"><p class="numbers"><b>age</b></p></label>
+                    <input class="number" type="number" placeholder="Num" name="psw" id="psw" required>
+                    <label for="psw"><p class="numbers"><b>height</b></p></label>
+                    <input class="number" type="number" placeholder="Num" name="psw" id="psw" required>
+                    <label class="number"for="psw"><p class="numbers"> <b>weight</b></p></label>
+                    <input type="number" placeholder="Num" name="psw" id="psw" required>
+                </div>
+                
+            
+                <label for="psw-repeat"><p><b>sex</b></p></label>
+                <div class="radios">
+                    <label for="check" class="form-control">
+                        <input type="radio" name="radio" id="check" />
+                        <p>Male</p>
+                      </label>
+                      
+                      <label for="check"class="form-control">
+                        <input type="radio" name="radio" id="check"/>
+                       <p>Female</p>
+                      </label>
+                      <label for="check" class="form-control">
+                        <input type="radio" name="radio" id="check"/>
+                       <p>Other</p>
+                      </label>
+                </div>
+                
+                <div class="place">
+                    <label for="cars">State:</label>
+                    <select name="cars" id="cars">
+                      <option value="volvo">Kerala</option>
+                      <option value="saab">Tamil Nadu</option>
+                      <option value="opel">Karnataka</option>
+                      <option value="audi">Goa</option>
+                    </select>
+                </div>
+                <hr>
+                <button type="submit" class="registerbtn">Submit</button>
+                </div>
+                <div class="container signin">
+                <p>Already have an account? <a href="/fiels/signin.html">Sign in</a>.</p>
+        </div>
+    </form>
+    </div>
+    {% endblock content %}
