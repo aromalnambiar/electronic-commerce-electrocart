@@ -24,3 +24,7 @@ def signin(request):
     context = {}
     return render(request, 'store/signin.html', context)
 
+
+def product(request):
+    context = {}
+    return render(request, 'store/product.html', context)

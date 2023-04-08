@@ -2,7 +2,7 @@
 {% load static %}
 {% block content %}
 
-<link type="text/css" rel="stylesheet" href="{% static 'css/cart.css' %}"/>
+
 
 
 <!-- SECTION -->
@@ -12,6 +12,62 @@
 		<!-- row -->
 		<div class="row">
 
+			<div class="top">
+				<div class="top-up">
+					<a href="{% url 'home' %}" class="home-button">Continue Shopping</a>
+				</div>
+
+				<hr>
+
+				<div class="top-down d-flex">
+					<div class="top-item ">
+						<p class="item">Item: </p> <p class="item-count">1</p>
+					</div>
+					<div class="top-item">
+						<p class="item">Total: </p> <p class="item-count">$20</p>
+					</div>
+					<a href="{% url 'checkout' %}" class="checkout">
+						<p class="top-checkout">Checkout</p>
+					</a>
+				</div>
+			</div>
+
+			<div class="bottom top-down">
+				<div class="bottom-img-container">
+					<img src="{% static './img/product01.png' %}" alt="" class="product-img">
+				</div>
+
+				<div class="item-container">
+					<p class="item-name">Item</p>
+					<p class="product-name">Laptop</p>
+				</div>
+
+				<div class="item-container">
+					<p class="item-name">Price</p>
+					<p class="product-name">$20</p>
+				</div>
+
+				<div class="item-container">
+					<p class="item-name">Quantity</p>
+					<div class="quantiy">
+						<p class="product-quantity">2</p>
+						<div class="quantity-mincontainer">
+							<p class="quantity-img">🔺</p>
+							<p class="quantity-img">🔻</p>
+						</div>
+					</div>
+					
+				</div>
+
+				<div class="item-container">
+					<p class="item-name">Total</p>
+					<p class="product-name">$20</p>
+					
+				</div>
+
+				
+
+			</div>
 
 		</div>
 		<!-- /row -->
