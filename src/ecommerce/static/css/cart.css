@@ -9,12 +9,12 @@
 .
 
 .home-button:hover{
-    color: #D10024;
-    border: 1px #D10024 solid;
+    color: #4169E1;
+    border: 1px #4169E1 solid;
 }
 
 .top{
-    border: #D10024 2px solid;
+    border: #4169E1 2px solid;
     box-shadow: 5px 5px 10px #888888;
     padding: 30px;
     margin-bottom: 40px;
@@ -41,19 +41,19 @@
     padding: 10px;
     padding-left: 40px;
     padding-right: 40px;
-    background-color: #D10024;
+    background-color: #4169E1;
     color: #fff;
 }
 
 .top-checkout:hover{
     background-color: #fff;
-    color: #D10024;
-    border: 1px #D10024 solid;
+    color: #4169E1;
+    border: 1px #4169E1 solid;
 }
 
 
 .bottom{
-    border: #D10024 2px solid;
+    border: #4169E1 2px solid;
     box-shadow: 5px 5px 10px #888888;
     padding: 30px;
 }
