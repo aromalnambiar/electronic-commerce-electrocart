@@ -21,10 +21,10 @@
 
 				<div class="top-down d-flex">
 					<div class="top-item ">
-						<p class="item">Item: </p> <p class="item-count">1</p>
+						<p class="item">Item: </p> <p class="item-count">{{order.get_cart_items}}</p>
 					</div>
 					<div class="top-item">
-						<p class="item">Total: </p> <p class="item-count">$20</p>
+						<p class="item">Total: </p> <p class="item-count">${{order.get_cart_total|floatformat:2}}</p>
 					</div>
 					<a href="{% url 'checkout' %}" class="checkout">
 						<p class="top-checkout">Checkout</p>
@@ -32,25 +32,26 @@
 				</div>
 			</div>
 
+			{% for item in items %}
 			<div class="bottom top-down">
 				<div class="bottom-img-container">
-					<img src="{% static './img/product01.png' %}" alt="" class="product-img">
+					<img src="{{item.product.imageURL}}" alt="" class="product-img">
 				</div>
 
 				<div class="item-container">
 					<p class="item-name">Item</p>
-					<p class="product-name">Laptop</p>
+					<p class="product-name">{{item.product.name}}</p>
 				</div>
 
 				<div class="item-container">
 					<p class="item-name">Price</p>
-					<p class="product-name">$20</p>
+					<p class="product-name">${{item.product.price|floatformat:2}}</p>
 				</div>
 
 				<div class="item-container">
 					<p class="item-name">Quantity</p>
 					<div class="quantiy">
-						<p class="product-quantity">2</p>
+						<p class="product-quantity">{{item.quantity}}</p>
 						<div class="quantity-mincontainer">
 							<p class="quantity-img">🔺</p>
 							<p class="quantity-img">🔻</p>
@@ -61,14 +62,15 @@
 
 				<div class="item-container">
 					<p class="item-name">Total</p>
-					<p class="product-name">$20</p>
+					<p class="product-name">${{item.get_total|floatformat:2}}</p>
 					
 				</div>
 
 				
 
 			</div>
-
+			{% endfor %}
+			
 		</div>
 		<!-- /row -->
 	</div>
