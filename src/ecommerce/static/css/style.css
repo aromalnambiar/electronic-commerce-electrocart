@@ -1865,6 +1865,10 @@ textarea.input {
   margin-bottom: 30px;
 }
 
+.shiping-address{
+  display: none;
+}
+
 .order-details {
   position: relative;
   padding: 0px 30px 30px;
@@ -1917,6 +1921,14 @@ textarea.input {
 .order-summary .order-col .order-total {
   font-size: 24px;
   color: #4169E1;
+}
+.order-submit{
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 5px;
+  padding-left: 30%;
+  padding-right: 30%;
+  display: block;
 }
 
 .order-details .payment-method {

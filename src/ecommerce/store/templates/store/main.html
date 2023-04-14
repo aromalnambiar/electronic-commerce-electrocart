@@ -293,6 +293,9 @@
 		<script src="{%static 'js/jquery.zoom.min.js' %}"></script>
 		<script src="{%static 'js/main.js' %}"></script>
 		<script src="{%static 'js/cart.js' %}"></script>
+
+		{% comment %} csrf {% endcomment %}
+
 		<script type="text/javascript" >
 			var user = '{{request.user}}'
 
@@ -313,6 +316,8 @@
 			}
 			const csrftoken = getToken('csrftoken');
 		</script>
+
+		{% comment %} hiding shipping field for digital items {% endcomment %}
 	
 
     </body>

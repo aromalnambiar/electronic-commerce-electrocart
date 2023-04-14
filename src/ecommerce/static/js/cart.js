@@ -1,7 +1,5 @@
 const updateBtns = document.getElementsByClassName('update-cart');
 
-console.log("hello world");
-
 for (let i = 0; i < updateBtns.length; i++) {
     updateBtns[i].addEventListener('click', function(){
         let productId = this.dataset.product

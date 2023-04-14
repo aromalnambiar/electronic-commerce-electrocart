@@ -60,7 +60,17 @@ class Order(models.Model):
         total = sum([item.quantity for item in orderitems])
         return total
     
-    
+    @property
+    def shipping(self):
+        shipping = False
+        orderitems = self.orderitem_set.all()
+        for i in orderitems:
+            if i.product.digital == False:
+                shipping = True
+        return shipping
+         
+         
+         
 #order item 
 
 class OrderItem(models.Model):
@@ -83,7 +93,9 @@ class ShippingAddress(models.Model):
     address = models.CharField(max_length=200, null=True)
     city = models.CharField(max_length=200, null=True)
     state = models.CharField(max_length=200, null=True)
+    Country = models.CharField(max_length=200, null=True)
     zipcode = models.CharField(max_length=200, null=True)
+    telephone = models.IntegerField(null=True)
     date_added = models.DateField(auto_now_add=False)
     
     def __str__(self):

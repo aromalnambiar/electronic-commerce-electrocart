@@ -31,36 +31,36 @@
 				<div class="row">
 
 					<div class="col-md-7">
-						<!-- Billing Details -->
-						<div class="billing-details">
+						<!-- shipping Details -->
+						
+						<div class="billing-details" id="billing"> 
 							<div class="section-title">
-								<h3 class="title">Billing address</h3>
+								<h3 class="title">Shipping address</h3>
+							</div>
+							<form id="shipping-form">
+							<div class="form-group">
+								<input class="input" type="text" name="name" placeholder="Name" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="first-name" placeholder="First Name">
+								<input class="input" type="text" name="address" placeholder="Address" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="last-name" placeholder="Last Name">
+								<input class="input" type="text" name="city" placeholder="City" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="email" name="email" placeholder="Email">
+								<input class="input" type="text" name="city" placeholder="State" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Address">
+								<input class="input" type="text" name="country" placeholder="Country" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="City">
+								<input class="input" type="number" name="zip-code" placeholder="ZIP Code" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="Country">
+								<input class="input" type="tel" name="tel" placeholder="Telephone" required>
 							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-							</div>
-							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telephone">
-							</div>
-							<div class="form-group">
+							
+							{% comment %} <div class="form-group">
 								<div class="input-checkbox">
 									<input type="checkbox" id="create-account">
 									<label for="create-account">
@@ -72,56 +72,25 @@
 										<input class="input" type="password" name="password" placeholder="Enter Your Password">
 									</div>
 								</div>
-							</div>
-						</div>
-						<!-- /Billing Details -->
+							</div> {% endcomment %}
 
-						<!-- Shiping Details -->
-						<div class="shiping-details">
-							<div class="section-title">
-								<h3 class="title">Shiping address</h3>
-							</div>
-							<div class="input-checkbox">
-								<input type="checkbox" id="shiping-address">
-								<label for="shiping-address">
-									<span></span>
-									Ship to a diffrent address?
-								</label>
-								<div class="caption">
-									<div class="form-group">
-										<input class="input" type="text" name="first-name" placeholder="First Name">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="last-name" placeholder="Last Name">
-									</div>
-									<div class="form-group">
-										<input class="input" type="email" name="email" placeholder="Email">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="address" placeholder="Address">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="city" placeholder="City">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="country" placeholder="Country">
-									</div>
-									<div class="form-group">
-										<input class="input" type="text" name="zip-code" placeholder="ZIP Code">
-									</div>
-									<div class="form-group">
-										<input class="input" type="tel" name="tel" placeholder="Telephone">
-									</div>
-								</div>
-							</div>
+							<input type="submit" id="shipping-button" class="primary-btn order-submit " />
+						</form>
 						</div>
-						<!-- /Shiping Details -->
+					
+						<!-- /shipping Details -->
 
-						<!-- Order notes -->
+
+						{% comment %} <!-- Order notes -->
 						<div class="order-notes">
+							<div class="section-title">
+								<h3 class="title">Order Notes</h3>
+							</div>
 							<textarea class="input" placeholder="Order Notes"></textarea>
 						</div>
-						<!-- /Order notes -->
+						<!-- /Order notes --> {% endcomment %}
+
+
 					</div>
 
 					<!-- Order Details -->
@@ -147,7 +116,7 @@
 								<div><strong class="order-total">${{order.get_cart_total}}</strong></div>
 							</div>
 						</div>
-						<div class="payment-method">
+						<div class="payment-method hidden" id="payment-container">
 							<div class="input-radio">
 								<input type="radio" name="payment" id="payment-1">
 								<label for="payment-1">
@@ -196,140 +165,31 @@
 		</div>
 		<!-- /SECTION -->
 
-		<!-- NEWSLETTER -->
-		<div id="newsletter" class="section">
-			<!-- container -->
-			<div class="container">
-				<!-- row -->
-				<div class="row">
-					<div class="col-md-12">
-						<div class="newsletter">
-							<p>Sign Up for the <strong>NEWSLETTER</strong></p>
-							<form>
-								<input class="input" type="email" placeholder="Enter Your Email">
-								<button class="newsletter-btn"><i class="fa fa-envelope"></i> Subscribe</button>
-							</form>
-							<ul class="newsletter-follow">
-								<li>
-									<a href="#"><i class="fa fa-facebook"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-twitter"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-instagram"></i></a>
-								</li>
-								<li>
-									<a href="#"><i class="fa fa-pinterest"></i></a>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<!-- /row -->
-			</div>
-			<!-- /container -->
-		</div>
-		<!-- /NEWSLETTER -->
+		{% comment %} hiding shipping field for digital items {% endcomment %}
 
-		<!-- FOOTER -->
-		<footer id="footer">
-			<!-- top footer -->
-			<div class="section">
-				<!-- container -->
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">About Us</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut.</p>
-								<ul class="footer-links">
-									<li><a href="#"><i class="fa fa-map-marker"></i>1734 Stonecoal Road</a></li>
-									<li><a href="#"><i class="fa fa-phone"></i>+021-95-51-84</a></li>
-									<li><a href="#"><i class="fa fa-envelope-o"></i>email@email.com</a></li>
-								</ul>
-							</div>
-						</div>
+		<script>
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Categories</h3>
-								<ul class="footer-links">
-									<li><a href="#">Hot deals</a></li>
-									<li><a href="#">Laptops</a></li>
-									<li><a href="#">Smartphones</a></li>
-									<li><a href="#">Cameras</a></li>
-									<li><a href="#">Accessories</a></li>
-								</ul>
-							</div>
-						</div>
+			let shipping_input = '{{order.shipping}}'
+			
 
-						<div class="clearfix visible-xs"></div>
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Information</h3>
-								<ul class="footer-links">
-									<li><a href="#">About Us</a></li>
-									<li><a href="#">Contact Us</a></li>
-									<li><a href="#">Privacy Policy</a></li>
-									<li><a href="#">Orders and Returns</a></li>
-									<li><a href="#">Terms & Conditions</a></li>
-								</ul>
-							</div>
-						</div>
 
-						<div class="col-md-3 col-xs-6">
-							<div class="footer">
-								<h3 class="footer-title">Service</h3>
-								<ul class="footer-links">
-									<li><a href="#">My Account</a></li>
-									<li><a href="#">View Cart</a></li>
-									<li><a href="#">Wishlist</a></li>
-									<li><a href="#">Track My Order</a></li>
-									<li><a href="#">Help</a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-					<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /top footer -->
+			if(shipping_input === 'False'){
+				document.getElementById('billing').innerHTML = ''
+			}
 
-			<!-- bottom footer -->
-			<div id="bottom-footer" class="section">
-				<div class="container">
-					<!-- row -->
-					<div class="row">
-						<div class="col-md-12 text-center">
-							<ul class="footer-payments">
-								<li><a href="#"><i class="fa fa-cc-visa"></i></a></li>
-								<li><a href="#"><i class="fa fa-credit-card"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-paypal"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-mastercard"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-discover"></i></a></li>
-								<li><a href="#"><i class="fa fa-cc-amex"></i></a></li>
-							</ul>
-							<span class="copyright">
-								<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-							<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-							</span>
-						</div>
-					</div>
-						<!-- /row -->
-				</div>
-				<!-- /container -->
-			</div>
-			<!-- /bottom footer -->
-		</footer>
-		<!-- /FOOTER -->
 
-	
-	</body>
-</html>
+			let form = document.getElementById('shipping-form')
+
+			form.addEventListener('submit', function(e){
+				e.preventDefault()
+				console.log('form submitted........')
+				document.getElementById('shipping-button').classList.add('hidden')
+				document.getElementById('payment-container').classList.remove('hidden')
+
+			})
+			
+
+		</script>
 
 {% endblock content %}
