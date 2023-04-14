@@ -73,3 +73,7 @@
     font-weight: bold;
     padding-top: 10px;
 }
+
+.update-cart{
+    cursor: pointer;
+}
