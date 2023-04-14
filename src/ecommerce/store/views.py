@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.http import JsonResponse
 from .models import *
 
 
@@ -89,3 +90,9 @@ def signin(request):
 def product(request):
     context = {}
     return render(request, 'store/product.html', context)
+
+
+#update item
+
+def updateItem(request):
+    return JsonResponse('item was added' , safe=False)

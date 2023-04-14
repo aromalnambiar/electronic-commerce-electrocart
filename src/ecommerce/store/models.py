@@ -61,7 +61,7 @@ class Order(models.Model):
         return total
     
     
-#order item
+#order item 
 
 class OrderItem(models.Model):
     product = models.ForeignKey(Product ,on_delete=models.SET_NULL, null=True)
