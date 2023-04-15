@@ -94,7 +94,7 @@ class ShippingAddress(models.Model):
     city = models.CharField(max_length=200, null=True)
     state = models.CharField(max_length=200, null=True)
     Country = models.CharField(max_length=200, null=True)
-    zipcode = models.CharField(max_length=200, null=True)
+    zipcode = models.IntegerField(null=True)
     telephone = models.IntegerField(null=True)
     date_added = models.DateField(auto_now_add=False)
     

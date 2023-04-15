@@ -38,9 +38,16 @@
 								<h3 class="title">Shipping address</h3>
 							</div>
 							<form id="shipping-form">
-							<div class="form-group">
-								<input class="input" type="text" name="name" placeholder="Name" required>
-							</div>
+								<div id="not-auth">
+									<div class="form-group">
+										<input class="input" type="text" name="name" placeholder="Name" required>
+									</div>
+									<div class="form-group">
+										<input class="input" type="email" name="address" placeholder="Email" required>
+									</div>
+								</div>
+								
+						<div id='shipping-details' class="hidden"> 
 							<div class="form-group">
 								<input class="input" type="text" name="address" placeholder="Address" required>
 							</div>
@@ -57,9 +64,9 @@
 								<input class="input" type="number" name="zip-code" placeholder="ZIP Code" required>
 							</div>
 							<div class="form-group">
-								<input class="input" type="tel" name="tel" placeholder="Telephone" required>
+								<input class="input" type="number" name="tel" placeholder="Telephone" required>
 							</div>
-							
+						</div>	
 							{% comment %} <div class="form-group">
 								<div class="input-checkbox">
 									<input type="checkbox" id="create-account">
@@ -155,7 +162,7 @@
 								I've read and accept the <a href="#">terms & conditions</a>
 							</label>
 						</div>
-						<a href="#" class="primary-btn order-submit">Place order</a>
+						<input type='submit' class="primary-btn order-submit hidden" id="place-order" value="place order" />
 					</div>
 					<!-- /Order Details -->
 				</div>
@@ -170,24 +177,44 @@
 		<script>
 
 			let shipping_input = '{{order.shipping}}'
-			
-
+			let form = document.getElementById('shipping-form')
+			let user = '{{request.user}}'
 
 
 			if(shipping_input === 'False'){
 				document.getElementById('billing').innerHTML = ''
 			}
 
+			if( user != "AnonymousUser" ){
+				document.getElementById('not-auth').innerHTML = ''
+			}
 
-			let form = document.getElementById('shipping-form')
+			if( shipping_input === 'False' && user != "AnonymousUser" ){
+				document.getElementById('shipping-form').classList.add('hidden')
+				document.getElementById('payment-container').classList.remove('hidden')
+				document.getElementById('place-order').classList.remove('hidden')
+				document.getElementById('shipping-details').classList.remove('hidden')
+			}
+			
 
 			form.addEventListener('submit', function(e){
 				e.preventDefault()
 				console.log('form submitted........')
 				document.getElementById('shipping-button').classList.add('hidden')
 				document.getElementById('payment-container').classList.remove('hidden')
+				document.getElementById('place-order').classList.remove('hidden')
 
 			})
+
+			document.getElementById('place-order').addEventListener('click', function(e){
+				paymentButtonClick()
+			})
+
+			function paymentButtonClick(){
+				console.log("payment button clicked....")
+			}
+			
+
 			
 
 		</script>

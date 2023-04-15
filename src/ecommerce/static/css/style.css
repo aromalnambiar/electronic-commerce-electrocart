@@ -418,6 +418,7 @@ textarea.input {
   background-color: #1E1F29;
 }
 
+
 .header-links li {
   display: inline-block;
   margin-right: 15px;
@@ -2166,6 +2167,7 @@ textarea.input {
 @media only screen and (max-width: 1201px) {}
 
 @media only screen and (max-width: 991px) {
+ 
   #top-header .header-links.pull-left {
     float: none !important;
   }
@@ -2204,6 +2206,15 @@ textarea.input {
 }
 
 @media only screen and (max-width: 480px) {
+
+  #top-header{
+    display: none;
+  }
+
+  .order-submit-disable:hover{
+    cursor: not-allowed;
+  }
+
   [class*='col-xs'] {
     width: 100%;
   }
