@@ -34,38 +34,39 @@
 						<!-- shipping Details -->
 						
 						<div class="billing-details" id="billing"> 
-							<div class="section-title">
-								<h3 class="title">Shipping address </h3>
-							</div>
+							
 							<form id="shipping-form">
+								<div class="section-title">
+									<h3 class="title">Shipping address </h3>
+								</div>
 								<div id="not-auth">
 									<div class="form-group">
 										<input class="input" type="text" name="name" placeholder="Name" >
 									</div>
 									<div class="form-group">
-										<input class="input" type="email" name="address" placeholder="Email" >
+										<input class="input" type="email" name="email" placeholder="Email" >
 									</div>
 								</div>
 								
-						<div id='shipping-details' class="hidden"> 
-							<div class="form-group">
-								<input class="input" type="text" name="address" placeholder="Address" >
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="City" >
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="city" placeholder="State" >
-							</div>
-							<div class="form-group">
-								<input class="input" type="text" name="country" placeholder="Country" >
-							</div>
-							<div class="form-group">
-								<input class="input" type="number" name="zip-code" placeholder="ZIP Code" >
-							</div>
-							<div class="form-group">
-								<input class="input" type="number" name="tel" placeholder="Telephone" >
-							</div>
+							<div id='shipping-details' > 
+								<div class="form-group">
+									<input class="input" type="text" name="address" placeholder="Address" >
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="city" placeholder="City" >
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="state" placeholder="State" >
+								</div>
+								<div class="form-group">
+									<input class="input" type="text" name="country" placeholder="Country" >
+								</div>
+								<div class="form-group">
+									<input class="input" type="number" name="" placeholder="ZIP Code" >
+								</div>
+								<div class="form-group">
+									<input class="input" type="number" name="tel" placeholder="Telephone" >
+								</div>
 						</div>	
 							{% comment %} <div class="form-group">
 								<div class="input-checkbox">
@@ -178,25 +179,35 @@
 
 			let shipping_input = '{{order.shipping}}'
 			let form = document.getElementById('shipping-form')
-			let user = '{{request.user}}'
+			let total = '{{order.get_cart_total|floatformat:2}}'
+			var user = '{{request.user}}' 
+
+			console.log(shipping_input)
 
 
 			if(shipping_input === 'False'){
 				document.getElementById('billing').innerHTML = ''
+				
 			}
 
 			if( user != "AnonymousUser" ){
 				document.getElementById('not-auth').innerHTML = ''
 			}
 
-			if( shipping_input === 'False' && user != "AnonymousUser" ){
+			if(user == 'AnonymousUser'){
+				document.getElementById('shipping-details').classList.add('hidden')
+			}
+
+
+			
+			if( shipping_input == 'False' && user != "AnonymousUser" ){
 				document.getElementById('shipping-form').classList.add('hidden')
 				document.getElementById('payment-container').classList.remove('hidden')
 				document.getElementById('place-order').classList.remove('hidden')
 				document.getElementById('shipping-details').classList.remove('hidden')
 			}
 			
-
+			
 			form.addEventListener('submit', function(e){
 				e.preventDefault()
 				console.log('form submitted........')
@@ -212,6 +223,44 @@
 
 			function paymentButtonClick(){
 				console.log("payment button clicked....")
+
+				let userFormdata = {
+
+					'name' : null,
+					'email' : null,
+					'total' : total,
+
+				}
+
+				let shippingInfo = {
+
+					'address' : null,
+					'city' : null,
+					'state' : null,
+					'country' : null,
+					'zip-code': null,
+					'tel' : null,
+
+				}
+
+				if ( user == 'AnonymousUser' ){
+					
+					userFormdata.name = form.name.value
+					userFormdata.email = form.email.value
+
+				}
+
+
+				if(shipping_input != False){
+
+					shippingInfo.address = form.address.value
+					shippingInfo.city = form.city.value
+					shippingInfo.state = form.state.value
+					shippingInfo.country = form.country.value
+					shippingInfo.zip = form.zip.value
+					shippingInfo.tel = form.tel.value
+
+				}
 			}
 			
 
