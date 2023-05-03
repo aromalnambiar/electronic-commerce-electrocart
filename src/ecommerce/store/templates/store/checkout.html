@@ -62,7 +62,7 @@
 									<input class="input" type="text" name="country" placeholder="Country" >
 								</div>
 								<div class="form-group">
-									<input class="input" type="number" name="" placeholder="ZIP Code" >
+									<input class="input" type="number" name="zip" placeholder="ZIP Code" >
 								</div>
 								<div class="form-group">
 									<input class="input" type="number" name="tel" placeholder="Telephone" >
@@ -179,7 +179,7 @@
 
 			let shipping_input = '{{order.shipping}}'
 			let form = document.getElementById('shipping-form')
-			let total = '{{order.get_cart_total|floatformat:2}}'
+			let total = '{{order.get_cart_total}}'
 			var user = '{{request.user}}' 
 
 			console.log(shipping_input)
@@ -190,9 +190,7 @@
 				
 			}
 
-			if( user != "AnonymousUser" ){
-				document.getElementById('not-auth').innerHTML = ''
-			}
+			
 
 			if(user == 'AnonymousUser'){
 				document.getElementById('shipping-details').classList.add('hidden')
@@ -201,10 +199,12 @@
 
 			
 			if( shipping_input == 'False' && user != "AnonymousUser" ){
-				document.getElementById('shipping-form').classList.add('hidden')
 				document.getElementById('payment-container').classList.remove('hidden')
 				document.getElementById('place-order').classList.remove('hidden')
-				document.getElementById('shipping-details').classList.remove('hidden')
+			}
+
+			if( user != "AnonymousUser" ){
+				document.getElementById('not-auth').innerHTML = ''
 			}
 			
 			
@@ -225,7 +225,6 @@
 				console.log("payment button clicked....")
 
 				let userFormdata = {
-
 					'name' : null,
 					'email' : null,
 					'total' : total,
@@ -251,7 +250,7 @@
 				}
 
 
-				if(shipping_input != False){
+				if(shipping_input != 'False'){
 
 					shippingInfo.address = form.address.value
 					shippingInfo.city = form.city.value
@@ -261,9 +260,30 @@
 					shippingInfo.tel = form.tel.value
 
 				}
+
+				var url = '/process_order/'
+
+				fetch(url, {
+					method : 'POST',
+					headers : {
+						'Content-type' : 'application/json',
+						'X-CSRFToken' : csrftoken,
+					},
+
+					body : JSON.stringify({ 'form' : userFormdata , 'shipping' : shippingInfo})
+				})
+				.then((response) => response.json())
+				.then((data) => {
+
+					console.log('Success: ', data  );
+					alert("Transcation Completed");
+					window.location.href = "{% url 'home' %}"
+
+				})
 			}
 			
 
+			
 			
 
 		</script>
